@@ -6,7 +6,10 @@
     Example: [1, 2, 3] -> [3, 2, 1]
 */
 function reverseArr(arr) {
-
+    for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+        [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];
+    }
+    return arr;
 }
 
 /*
@@ -25,7 +28,11 @@ function reverseArr(arr) {
     ["name", "age", "breed", "friendly"]
 */
 function objectKeysToArr(object) {
-
+    const arr = []
+    for (const key in object) {
+        arr.push(key)
+    }
+    return arr;
 }
 
 /*
@@ -52,15 +59,30 @@ function objectKeysToArr(object) {
     }
 */
 function combineObjects(object1, object2) {
-
+    return {...object1, ...object2}
 }
-
 
 // DO NOT ALTER THE CODE BELOW (This is for testing purposes only)
 
-console.log(reverseArr([1, 2, 3]))
-console.log(reverseArr([2, 4, 6, 8]))
-console.log(objectKeysToArr({ name: "Casey", age: 18, breed: "Pomeranian", friendly: false }))
-console.log(objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian", "test 1": false }))
-console.log(combineObjects({ name: "Casey", age: 18 }, { breed: "Pomeranian", friendly: false }))
-console.log(objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian" }, { "test 1": false }))
+console.log(reverseArr([1, 2, 3]));
+console.log(reverseArr([2, 4, 6, 8]));
+console.log(
+    objectKeysToArr({
+        name: "Casey",
+        age: 18,
+        breed: "Pomeranian",
+        friendly: false,
+    })
+);
+console.log(
+    objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian", "test 1": false })
+);
+console.log(
+    combineObjects(
+        { name: "Casey", age: 18 },
+        { breed: "Pomeranian", friendly: false }
+    )
+);
+console.log(
+    objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian" }, { "test 1": false })
+);
